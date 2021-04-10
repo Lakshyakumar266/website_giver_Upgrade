@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ params['Website_name'] }} | My Templates</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo2.png') }}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/utils.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responcive.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Neded Scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="navigation flex flex-center" id="navigation">
+            <div class="logo">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='img/logoprev.png') }}" alt="Logo">
+                </a>
+            </div>
+            <div onclick="hamburgerOpean();" class="hamburger">
+                <i class="fa fa-bars"></i>
+            </div>
+            <ul class="flex" id="navul">
+                <a href="/" class="links fst">
+                    <li class="scroll">Home</li>
+                </a>
+                <a href="/games" class="links">
+                    <li class="scroll">Games</li>
+                </a>
+                <a href="/bloges" class="links">
+                    <li class="scroll">Blogs</li>
+                </a>
+                <a href="/contact" class="links">
+                    <li class="scroll">Contact</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- BODY CONTENT -->
+    {% block body %} {% endblock %}
+    <!-- BODY CONTENT -->
+
+    <div class="up">
+        <a href="#">
+            <div class="top">
+                <i class="fa fa-chevron-up"></i>
+            </div>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="flex footer flex-center">
+        Copyright &copy; all Rights reserved &#8205; <span id="year-holder"></span>
+        <span class="space">&#8205; &#8205; | &#8205; &#8205;</span>
+        <!-- Images Copyright -->
+        <div>
+            Vector Images From -<a href="https://www.freepik.com/vectors" target="_blank"> freepik.com</a>
+        </div>
+        <br>
+        <div>
+            <span class="and"> &#8205; &#8205; With &#8205; &#8205; </span>
+            <a href="https://www.freepnglogos.com" target="_blank">freepnglogos.co</a>
+            <span class="and"> &#8205; &#8205; And &#8205; &#8205; </span>
+            <a href="https://secure.logomaker.com/" target="_blank">logomaker.com</a>
+        </div>
+    </footer>
+</body>
+
+<!-- Neded Scripts -->
+<script src="{{ url_for('static', filename='js/hamburger.js') }}"></script>
+<script src="{{ url_for('static', filename='js/datetime.js') }}"></script>
+<script src="{{ url_for('static', filename='js/error_btn.js') }}"></script>
+
+</html>

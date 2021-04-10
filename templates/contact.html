@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Submition Form -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+<div class="p-1 container">
+    <Form class="form" action="/contact" method="post">
+        <h1 class="form-heading">Feel Free To Contact:</h1>
+        <div class="form-group flex flex-collem">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter Your Name">
+        </div>
+        <div class="form-group flex flex-collem">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter Your Email">
+        </div>
+        <div class="form-group flex flex-collem">
+            <label for="phone">Number:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter Your Phone number">
+        </div>
+        <div class="form-group flex flex-collem">
+            <label for="issus">Writw Why You Want To Contact Me For:</label>
+            <textarea id="issus" name="msg" placeholder="Describe Your issus"></textarea>
+        </div>
+        <div class="form-group flex flex-collem">
+            <div id="recaptcha"></div>
+        </div>
+        <div class="form-group flex flex-collem">
+            <b>
+                <input type="submit" value="SEND">
+            </b>
+        </div>
+    </Form>
+</div>
+
+<script>
+    var onloadCallback = function () {
+        grecaptcha.render('recaptcha', {
+            'sitekey': '6Le7w-UZAAAAAHZqi3mKL7FBCBOwfiIsMhsm15in'
+        });
+    };
+</script>
+
+{% endblock %}

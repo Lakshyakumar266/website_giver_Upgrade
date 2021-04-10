@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Content Body -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+<div class="Content m-auto">
+    <div class="welcome-fold m-auto">
+        <h1>It's Your:</h1>
+        <div class="flex">
+            <div class="front">
+                <img src="{{ url_for('static', filename='img/game-maker-logo.png') }}" alt="">
+            </div>
+            <div class="flex flex-collem">
+                <h3> Game Maker And You Gan Get The Games made By Me: </h3>
+                <p>A contemporary video game may include advanced physics, artificial intelligence, 3D graphics,
+                    digitised sound, an original musical score, complex strategy and may use several input devices
+                    (such as mice, keyboards, gamepads and joysticks) and may be playable against other people via
+                    the Internet or over a LAN. Each aspect of the game can consume all of one programmer's time
+                    and, in many cases, several programmers. Some programmers may specialize in one area of game.
+                </p>
+                <div style="border-bottom: 1px solid black;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="templates m-auto">
+        <h1>Our Games:</h1>
+        <div class="templates-links">
+            <div class="temp flex flex-collem">
+                <button id="btn1" class=" opean-more flex align-center">
+                    <img class="arrow 1" height="15px" width="15px" src="{{ url_for('static', filename='img/ico-plus.png') }}" alt="">
+                    <h3> Food Eater.apk </h3>
+                </button>
+                <div id="btn-close1" class="data-hande" style=" display:none;">
+                    <a target="_blank" download="food-eater.apk" href="{{ url_for('static', filename='Games/Food-Eater.apk') }}">
+                        <h2> Food-Eater.apk </h2>
+                    </a>
+                    <p class="para">
+                        This Game Only made For Android Devices and And It is My first Game So If You Find Any Error
+                        Then Please Contact Me So We Can Inprove The Game
+                    </p>
+
+                    <p class="para">
+                        <b>
+                            - This Game is For Android Only
+                        </b>
+                        <br>
+                        - Game is made For Practice Purposes Only
+                        <br>
+                        - In This Game The Character Want To eat The Food
+                    </p>
+                    <p class="author">Author - lakshya Kumar(programer)</p>
+                    <p class="date">Published on 1/21/2021 | 9min Play</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="scripts">
+    <script>closer('btn1', 'btn-close1', '1');</script>
+</div>
+{% endblock %}

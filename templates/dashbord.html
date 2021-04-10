@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashbord.css') }}">
+    <div class="main-content">
+        <h2>Welcome To {{ params['Website_name'] }} Dashbord</h2>
+        <button onclick="location.href='/logout'" class="button">logout</button>
+        <button onclick="location.href='/manage'" class="button">Manage Posts</button>
+    </div>
+    <!-- <div class="container"> -->
+    <form action="/" method="POST">
+        <div class="row">
+
+            <div class="col-25">
+                <label for="fname">Website Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="fname" name="webname" placeholder="Your Website name..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="lname">Website Url</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="lname" name="webUrl" placeholder="Your Website Url..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Type</label>
+            </div>
+            <div class="col-75">
+                <select id="country" name="type">
+                    <option value="Website">Website</option>
+                    <option value="Game">Game</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="subject">Description</label>
+            </div>
+            <div class="col-75">
+                <textarea id="subject" name="description" placeholder="Write something.." style="height:200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <!-- </div> -->
+</div>
+{% endblock %}

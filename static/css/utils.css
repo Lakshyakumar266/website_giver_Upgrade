@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Pacifico&family=Tenali+Ramakrishna&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+.flex {
+  display: flex;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+.m-auto {
+  margin: auto;
+}
+
+.flex-collem {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.p-1 {
+  padding-top: 90px;
+}
+.container,
+.Content {
+  min-height: 80vh;
+}
+
+.icon-hambar {
+  background: black;
+  position: absolute;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.icon-hambar i {
+  color: #ddd;
+  font-size: 2rem;
+}
+.icon-hambar:hover {
+  background: rgb(77, 76, 76);
+  color: #fff;
+}
+.icon-hambar i:hover {
+  background: rgb(77, 76, 76);
+  color: #79a3de;
+}
+/* .active {
+  background-color: #4CAF50;
+  color: white;
+} */
+
+.border-btm{
+  border-bottom: 2px solid #202020;
+}
+
+.weidht-2{
+  font-weight: 100;
+}
+button{
+  cursor: pointer;
+}
+
+.anim {
+  transform: rotateZ(90deg);
+}
+
+.arrow {
+  transition: all 200ms ease-in;
+}
+
+.top{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  position: fixed;
+  background: #ff7905;
+  padding: 10px;
+  border-radius: 2px;
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+}
+.top i{
+  font-weight: 100;
+  color: #000000;
+}
+.visible{
+  opacity: 1;
+}
+
+footer::selection,
+footer div::selection,
+footer span::selection {
+  background: #f1f1f1;
+  color: #000;
+}
+footer a::selection {
+  background: #f1f1f1;
+  color: rgb(0, 81, 255);
+}

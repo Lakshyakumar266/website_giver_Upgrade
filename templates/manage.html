@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashbord.css') }}">
+    <div class="main-content">
+        <h2>Welcome To {{ params['Website_name'] }} Post Manager</h2>
+        <button onclick="location.href='/logout'" class="button">logout</button>
+        <button onclick="location.href='/dashbord'" class="button">Dashbord</button>
+
+        <br>
+        <br>
+        <div class="border-btm"></div>
+        <br>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th>Url</th>
+                    <th>type</th>
+                    <th>date</th>
+                    <th>edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for posts in post %}
+                <tr>
+                    <td>{{ posts.sno }}</td>
+                    <td>{{ posts.webname }}</td>
+                    <td><a target="_blank" class="table-link" href="{{ posts.link }}">{{ posts.link }}</a></td>
+                    <td>{{ posts.typeof }}</td>
+                    <td>{{ posts.datetime }}</td>
+                    <td>
+                        <button onclick="location.href='/dashbord'" class="button">Edit</button>
+                        <button onclick="location.href='/delet/{{ posts.sno }}'" class="button">Delete</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

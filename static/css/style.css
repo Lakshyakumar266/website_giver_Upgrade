@@ -1,0 +1,156 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: seashell;
+}
+
+/* navigation */
+.black {
+  background-color: #ff7905;
+  color: white;
+}
+nav {
+  background-color: rgb(240, 240, 240);
+  border-bottom: 1px solid #000;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+}
+.navigation {
+  height: 90px;
+  position: relative;
+  width: 90vw;
+  margin: 0 auto;
+}
+nav ul {
+  position: absolute;
+  right: 60px;
+}
+nav ul li {
+  list-style: none;
+  padding: 5px;
+  margin: 10px 20px;
+}
+.links {
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+}
+
+.logo {
+  position: absolute;
+  left: 60px;
+}
+.logo img {
+  width: 100px;
+  height: 80px;
+  filter: hue-rotate(216deg);
+}
+
+/* Content */
+.Content {
+  background-color: seashell;
+  padding-top: 50px;
+}
+.welcome-fold {
+  width: 70vw;
+  position: relative;
+  z-index: 1;
+  margin-top: 80px !important;
+}
+.welcome-fold::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../img/4498903.jpg");
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  opacity: 0.4;
+  border-radius: 25px;
+  border: 1px solid #000;
+  padding: 10px;
+  right: -17px;
+}
+.welcome-fold h1 {
+  font-family: "Pacifico", cursive;
+}
+.welcome-fold h3 {
+  font-family: cursive;
+}
+.welcome-fold p {
+  font-family: monospace;
+}
+.templates {
+  width: 80vw;
+  padding-top: 50px;
+}
+.templates h1 {
+  font-family: "Pacifico", cursive;
+}
+.opean-more {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.opean-more:hover {
+  text-decoration: underline;
+}
+.temp {
+  margin: 20px;
+}
+
+.para {
+  font-family: "Oswald", sans-serif;
+}
+.author {
+  font-size: 19px;
+  font-weight: 900;
+  font-family: "Tenali Ramakrishna", sans-serif;
+  float: left;
+}
+.date {
+  text-align: center;
+  float: right;
+  font-size: 20px;
+  font-family: "Tenali Ramakrishna", sans-serif;
+}
+.data-hande h2 {
+  text-align: center;
+  font-family: cursive;
+}
+.data-hande {
+  background: rgb(239, 158, 101);
+  padding: 10px;
+  border: 1px solid #000;
+  display: none;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+/* Footer */
+footer {
+  background: rgb(31, 31, 31);
+  color: white;
+  height: 100px;
+  font-family: "Oswald", sans-serif;
+}
+footer a {
+  /* margin: 10px; */
+  color: rgb(0, 140, 255);
+}
+.hamburger {
+  display: none;
+}
+
+/* Selected Are */
+::selection {
+  background: #ff7905;
+  color: #f1f1f1;
+}

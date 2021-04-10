@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Content Body -->
+<div class="Content m-auto">
+    <!-- Hello area -->
+    <div class="welcome-fold m-auto">
+        <h1>Welcome To:</h1>
+        <div class="flex">
+            <div class="front">
+                <img src="{{ url_for('static', filename='img/logoprev.png') }}" alt="">
+            </div>
+            <div class="flex flex-collem">
+                <h3> Get the Best Templates maded By Me: </h3>
+                <p>A web developer is a programmer who specializes in, or is specifically engaged in, the
+                    development of World Wide Web applications using a client–server model. The applications
+                    typically use HTML, CSS and JavaScript in the client, PHP, ASP.NET (C#), Python, Go or Java in
+                    the server, and http for communications between client and server. A web content management
+                    system is often used to develop and maintain web applications.</p>
+                <div style="border-bottom: 1px solid black;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Content Section -->
+    <div class="templates m-auto">
+        <h1>Templates:</h1>
+        <div class="templates-links">
+            {% for posts in post %}
+            <div class="temp flex flex-collem">
+                <button id="btn{{ posts.sno }}" class=" opean-more flex align-center">
+                    <img class="arrow {{ posts.sno }}" height="15px" width="15px"
+                        src="{{ url_for('static', filename='img/ico-plus.png') }}" alt="">
+                    <h3> {{ posts.webname }} </h3>
+                </button>
+                <div id="btn-close{{ posts.sno }}" class="data-hande" style=" display:none;">
+                    <a target="_blank" href="{{ posts.link }}">
+                        <h2> {{ posts.webname }} </h2>
+                    </a>
+                    <p class="para">{{ posts.about }}.</p>
+                    <p class="author">Author - lakshya Kumar(programer)</p>
+                    <p class="date">Published on {{ posts.datetime }} | {{ posts.readmin }}min read</p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!--
+            <div class="temp flex flex-collem">
+                <button id="btn11" class="btn opean-more flex align-center">
+                    <img class="arrow 11" height="15px" width="15px"
+                        src="{{ url_for('static', filename='img/ico-plus.png') }}" alt="">
+                    <h3>The Quizzer</h3>
+                </button>
+                <div id="btn-close11" class="data-hande" style=" display:none;">
+                    <a target="_blank" href="https://lakshyakumar266.github.io/Quizzer/index.html">
+                        <h2>The Quizzer</h2>
+                    </a>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae beatae
+                        itaque cupiditate quo natus voluptatibus quidem praesentium dolore illum Voluptatem. Lorem
+                        ipsum Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Voluptatum corporis possimus voluptates.</p>
+                    <p class="author">Author - lakshya Kumar(programer)</p>
+                    <p class="date">Published on 1/11/2021 | 25min read</p>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</div>
+
+<div class="scripts">
+    {% for posts in post %}
+        <script>closer('btn{{ posts.sno }}', 'btn-close{{ posts.sno }}', '{{ posts.sno }}');</script>
+    {% endfor %}
+</div>
+
+{% endblock %}
