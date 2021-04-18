@@ -73,9 +73,15 @@ def games():
     return render_template('games.html', params=params)
 
 
-@app.route('/bloges')
-def bloges():
-    return redirect('/')
+@app.route('/search', methods=["GET", "POST"])
+def search():
+    if request.method == 'GET':
+        searchres = request.form.get('serach')
+        search = Weblinks.query.filter_by(webname=searchres)
+        return render_template('search.html', params=params, post=search)
+
+    post = Weblinks.query.filter_by().all()
+    return render_template('search.html', params=params, post=post)
 
 
 @app.route('/dashbord', methods=["GET", "POST"])
@@ -140,6 +146,39 @@ def delet(sno):
         post = Weblinks.query.filter_by(sno=sno).first()
         db.session.delete(post)
         db.session.commit()
+    return redirect('/manage')
+
+
+@app.route('/edit/<string:sno>', methods=['GET', 'POST'])
+def edit(sno):
+    if ('user' in session and session['user'] == params['admin_Username']):
+        date = datetime.now()
+        if request.method == 'POST':
+            # typeof=typeof, webname=webname, link=webUrl, about=description, readmin=random, datetime=datetime.now()
+            webname = request.form.get('webname')
+            webUrl = request.form.get('webUrl')
+            typeof = request.form.get('typeof')
+            ctime = request.form.get('ctime')
+            rtime = request.form.get('rtime')
+            description = request.form.get('description')
+
+            # Add new data To database
+            post = Weblinks.query.filter_by(sno=sno).first()
+            post.typeof = typeof
+            post.webname = webname
+            post.link = webUrl
+            post.about = description
+            post.readmin = rtime
+            post.datetime = date
+
+            print(typeof)
+
+            # Commit The Data
+            db.session.commit()
+            return redirect('/manage')
+
+        post = Weblinks.query.filter_by(sno=sno).first()
+        return render_template('edit.html', post=post, params=params)
     return redirect('/dashbord')
 
 

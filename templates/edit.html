@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<style>
+    .green-txt {
+        color: rgb(245, 61, 61);
+    }
+</style>
+
+<div class="container">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashbord.css') }}">
+    <div class="main-content">
+        <h2>You Are In ({{ post.webname }}) Edeting</h2>
+        <button onclick="location.href='/logout'" class="button">logout</button>
+        <button onclick="location.href='/manage'" class="button">Manage Posts</button>
+        <button onclick="location.href='/dashbord'" class="button">Dashbord</button>
+    </div>
+    <!-- <div class="container"> -->
+    <form action="/edit/{{ post.sno }}" method="POST">
+        <div class="row">
+
+            <div class="col-25">
+                <label for="fname">Website Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="fname" name="webname" value="{{ post.webname }}"
+                    placeholder="Your Website name..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="lname">Website Url</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="lname" name="webUrl" value="{{ post.link }}" placeholder="Your Website Url..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="ctime">Created Time</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="ctime" name="ctime" value="{{ post.datetime }}" disabled>
+                <small class="green-txt">**You cannot edit time of uploding**</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="rtime">Read time</label>
+            </div>
+            <div class="col-75 flex flex-center" style="width: 200px;">
+                <input type="text" id="rtime" name="rtime" value="{{ post.readmin }}">minutes
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Type</label>
+            </div>
+            <div class="col-75">
+                <select id="country" name="typeof">
+                    <option disabled value="Game">Game</option>
+                    <option value="Website">Website</option>
+                </select>
+                <small class="green-txt">**You cannot edit type of this**</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="subject">Description</label>
+            </div>
+            <div class="col-75">
+                <textarea id="subject" name="description" placeholder="Write something.." style="height:200px">
+                    {{ post.about }}
+                </textarea>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <!-- </div> -->
+</div>
+{% endblock %}

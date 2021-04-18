@@ -17,6 +17,7 @@ textarea {
 label {
   padding: 12px 12px 4px 0;
   display: inline-block;
+  cursor: pointer;
 }
 
 /* Style the submit button */

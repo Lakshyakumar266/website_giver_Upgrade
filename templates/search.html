@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <form action="/search" method="GET">
+        <input type="text" name="search" id="search">
+        <input type="submit" value="Search">
+        {{ post.webname }}
+    </form>
+</div>
+{% endblock %}

@@ -27,12 +27,12 @@
                 {% for posts in post %}
                 <tr>
                     <td>{{ posts.sno }}</td>
-                    <td>{{ posts.webname }}</td>
-                    <td><a target="_blank" class="table-link" href="{{ posts.link }}">{{ posts.link }}</a></td>
+                    <td>{{ posts.webname[0:25] }}</td>
+                    <td><a target="_blank" class="table-link" href="{{ posts.link }}">{{ posts.link[0:50] }}...</a></td>
                     <td>{{ posts.typeof }}</td>
                     <td>{{ posts.datetime }}</td>
                     <td>
-                        <button onclick="location.href='/dashbord'" class="button">Edit</button>
+                        <button onclick="location.href='/edit/{{ posts.sno }}'" class="button">Edit</button>
                         <button onclick="location.href='/delet/{{ posts.sno }}'" class="button">Delete</button>
                     </td>
                 </tr>
