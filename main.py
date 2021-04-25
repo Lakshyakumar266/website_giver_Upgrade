@@ -23,7 +23,9 @@ app.config.update(
 
 mail = Mail(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/websitegiverofficial'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/websitegiverofficial'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydata.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 
@@ -36,16 +38,22 @@ class Contact(db.Model):
     concern = db.Column(db.String(500), nullable=False)
     date = db.Column(db.String(12), nullable=True)
 
+    def __repr__(self):
+        return f"{sno} - {name} - {concern}"
+
 
 # sno webname link about readmin datetime
 class Weblinks(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
-    typeof = db.Column(db.Integer, primary_key=True)
+    typeof = db.Column(db.Integer, nullable=False)
     webname = db.Column(db.String(50), nullable=False)
     link = db.Column(db.String(110), nullable=False)
     about = db.Column(db.String(99999), nullable=False)
     readmin = db.Column(db.String(11), nullable=False)
-    datetime = db.Column(db.String(12), nullable=True)
+    datetime = db.Column(db.String(12), nullable=False)
+
+    def __repr__(self):
+        return f"{sno} - {typeof} - {webname} - {link} - {about} - {readmin} - {datetime}"
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -63,6 +71,7 @@ def home():
                              about=description, readmin=random, datetime=datetime.now())
             db.session.add(entry)
             db.session.commit()
+            return redirect('/dashbord')
 
     post = Weblinks.query.filter_by().all()
     return render_template('index.html', params=params, post=post)
@@ -182,4 +191,5 @@ def edit(sno):
     return redirect('/dashbord')
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
